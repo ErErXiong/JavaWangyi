@@ -25,7 +25,7 @@ public class NIOServerV2 {
         SelectionKey selectionKey = serverSocketChannel.register(selector, 0, serverSocketChannel);// 将serverSocketChannel注册到selector
         selectionKey.interestOps(SelectionKey.OP_ACCEPT); // 对serverSocketChannel上面的accept事件感兴趣(serverSocketChannel只能支持accept操作)
 
-        // 3. 绑定端口
+        // 3. 绑定端口    new InetSocketAddress(ip, 端口号) 也可以. 不写ip就是全ip
         serverSocketChannel.socket().bind(new InetSocketAddress(8080));
 
         System.out.println("启动成功");
